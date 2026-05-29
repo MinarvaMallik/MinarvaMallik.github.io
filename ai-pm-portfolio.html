@@ -800,11 +800,12 @@ footer {
     <h1>Building at the<br>edge of <em>AI</em></h1>
   </div>
   <div class="header-right">
-    <p class="bio">Product Manager focused on AI-native experiences. I find broken workflows and ship AI that makes them invisible. Every project here starts with a real problem.</p>
+    <p class="bio">Product leader with 12+ years across banking and fintech. Building hands-on with agentic AI — combining product strategy with AI engineering to build what's next.</p>
     <div class="contact-links">
-      <a href="#" onclick="return false;">LinkedIn ↗</a>
-      <a href="#" onclick="return false;">Resume ↗</a>
-      <a href="mailto:your@email.com">Contact</a>
+      <a href="https://www.linkedin.com/in/minarva-mallik-iimb/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://MinarvaMallik.github.io/Minarva_Mallik_Resume_2026.pdf" target="_blank" rel="noopener">Resume ↗</a>
+      <a href="mailto:minarva001@gmail.com">Contact</a>
+      <a href="#" onclick="openAboutModal(); return false;">About Me</a>
     </div>
   </div>
 </header>
@@ -935,6 +936,32 @@ footer {
       <div>
         <p class="section-label">Tags</p>
         <div class="modal-tags" id="modalTags"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT MODAL -->
+<div class="modal-overlay" id="aboutOverlay" onclick="if(event.target===this)closeAboutModal()">
+  <div class="modal" id="aboutModal">
+    <div class="modal-top-bar"></div>
+    <div class="modal-header">
+      <h2 class="modal-title">Minarva Mallik</h2>
+      <button class="modal-close" onclick="closeAboutModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <p class="section-label">About</p>
+        <p class="modal-problem" style="line-height:1.9;">Product leader with 12+ years across banking and fintech. Leading Alerts &amp; Notifications at J.P. Morgan Chase Digital Commercial Bank; worked as a Senior PM at Goldman Sachs on Payments and at NatWest on Open Banking — across products serving millions of users. Drawn to the messy, ambiguous early stages of product — where strategy and discovery matter most.</p>
+      </div>
+      <div>
+        <p class="modal-problem" style="line-height:1.9;">Actively building hands-on depth in AI — prototyping agentic systems including multi-agent pipelines, RAG, MCP, stateful memory, and evals — combining product strategy with AI engineering to build what's next. MBA from IIM Bangalore.</p>
+      </div>
+      <div>
+        <div class="contact-links" style="justify-content:flex-start; margin-top:0.5rem;">
+          <a href="https://www.linkedin.com/in/minarva-mallik-iimb/" target="_blank" rel="noopener" style="font-size:12px;">LinkedIn ↗</a>
+          <a href="mailto:minarva001@gmail.com" style="font-size:12px;">minarva001@gmail.com</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1248,6 +1275,16 @@ document.querySelectorAll('.filter-tag').forEach(btn => {
   });
 });
 
+function openAboutModal() {
+  document.getElementById('aboutOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAboutModal() {
+  document.getElementById('aboutOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 function openModal(idx) {
   const p = filteredProjects[idx];
   document.getElementById('modalTitle').textContent = p.title;
@@ -1306,6 +1343,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     closeLightbox();
     closeModal();
+    closeAboutModal();
   }
 });
 
